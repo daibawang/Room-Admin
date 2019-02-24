@@ -1,0 +1,413 @@
+<script type="text/javascript">
+const options = [{
+  value: '1',
+  label: '第一节',
+  children: [{
+    value: '1',
+    label: '第一节'
+  }, {
+    value: '2',
+    label: '第二节'
+  }, {
+    value: '3',
+    label: '第三节'
+  }, {
+    value: '4',
+    label: '第四节'
+  }, {
+    value: '5',
+    label: '午一节'
+  }, {
+    value: '6',
+    label: '午二节'
+  }, {
+    value: '7',
+    label: '第五节'
+  }, {
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '2',
+  label: '第二节',
+  children: [{
+    value: '2',
+    label: '第二节'
+  }, {
+    value: '3',
+    label: '第三节'
+  }, {
+    value: '4',
+    label: '第四节'
+  }, {
+    value: '5',
+    label: '午一节'
+  }, {
+    value: '6',
+    label: '午二节'
+  }, {
+    value: '7',
+    label: '第五节'
+  }, {
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '3',
+  label: '第三节',
+  children: [{
+    value: '3',
+    label: '第三节'
+  }, {
+    value: '4',
+    label: '第四节'
+  }, {
+    value: '5',
+    label: '午一节'
+  }, {
+    value: '6',
+    label: '午二节'
+  }, {
+    value: '7',
+    label: '第五节'
+  }, {
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '4',
+  label: '第四节',
+  children: [{
+    value: '4',
+    label: '第四节'
+  }, {
+    value: '5',
+    label: '午一节'
+  }, {
+    value: '6',
+    label: '午二节'
+  }, {
+    value: '7',
+    label: '第五节'
+  }, {
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '5',
+  label: '午一节',
+  children: [{
+    value: '5',
+    label: '午一节'
+  }, {
+    value: '6',
+    label: '午二节'
+  }, {
+    value: '7',
+    label: '第五节'
+  }, {
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '6',
+  label: '午二节',
+  children: [{
+    value: '6',
+    label: '午二节'
+  }, {
+    value: '7',
+    label: '第五节'
+  }, {
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  },, {
+      value: '13',
+      label: '晚三节'
+    }, {
+      value: '14',
+      label: '晚四节'
+    }]
+}, {
+  value: '7',
+  label: '第五节',
+  children: [{
+    value: '7',
+    label: '第五节'
+  }, {
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '8',
+  label: '第六节',
+  children: [{
+    value: '8',
+    label: '第六节'
+  }, {
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '9',
+  label: '第七节',
+  children: [{
+    value: '9',
+    label: '第七节'
+  }, {
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '10',
+  label: '第八节',
+  children: [{
+    value: '10',
+    label: '第八节'
+  }, {
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '11',
+  label: '晚一节',
+  children: [{
+    value: '11',
+    label: '晚一节'
+  }, {
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '12',
+  label: '晚二节',
+  children: [{
+    value: '12',
+    label: '晚二节'
+  }, {
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '13',
+  label: '晚三节',
+  children: [{
+    value: '13',
+    label: '晚三节'
+  }, {
+    value: '14',
+    label: '晚四节'
+  }]
+}, {
+  value: '14',
+  label: '晚四节',
+  children: [{
+    value: '14',
+    label: '晚四节'
+  }]
+}
+]
+const classroom = [
+  {
+    value: '1',
+    label: '大数据学院',
+    children: [{
+      value: '112',
+      label: '112'
+    }, {
+      value: '113',
+      label: '113'
+    }]
+  }, {
+    value: '2',
+    label: '多媒体教室',
+    children: [{
+      value: '211',
+      label: '211'
+    }, {
+      value: '301',
+      label: '301'
+    }]
+  }, {
+    value: '3',
+    label: '普通教室',
+    children: [{
+      value: '411',
+      label: '411'
+    }, {
+      value: '401',
+      label: '401'
+    }]
+  }
+]
+export default
+{
+  options,
+  classroom
+}
+</script>
