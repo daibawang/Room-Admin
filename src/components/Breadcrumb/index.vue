@@ -28,15 +28,15 @@ export default {
   },
   methods: {
     getBreadcrumb() {
-      let matched = this.$route.matched.filter(item => {
+      const matched = this.$route.matched.filter(item => {
         if (item.name) {
           return true
         }
       })
       const first = matched[0]
-      if (first && first.name !== 'dashboard') {
-        matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
-      }
+      // if (first && first.name !== 'dashboard') {
+      //   matched = [{ path: '/dashboard', meta: { title: '首页' }}].concat(matched)
+      // }
       this.levelList = matched
     },
     pathCompile(path) {

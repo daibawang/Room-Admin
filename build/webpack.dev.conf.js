@@ -57,7 +57,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true,
       favicon: resolve('favicon.ico'),
-      title: 'FStudent-admin'
+      title: 'RoomManageMentAdmin'
     })
   ]
 })

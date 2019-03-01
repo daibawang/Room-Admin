@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-      <h3 class="title">留学生报名系统管理端</h3>
+      <h3 class="title">教室借用系统管理端</h3>
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -68,14 +68,14 @@ export default {
       redirect: undefined
     }
   },
-  watch: {
-    $route: {
-      handler: function(route) {
-        this.redirect = route.query && route.query.redirect
-      },
-      immediate: true
-    }
-  },
+  // watch: {
+  //   $route: {
+  //     handler: function(route) {
+  //       this.redirect = route.query && route.query.redirect
+  //     },
+  //     immediate: true
+  //   }
+  // },
   methods: {
     showPwd() {
       if (this.pwdType === 'password') {
@@ -88,10 +88,10 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$axios.post(this.$URL + 'UserServlet', {
+          this.$axios.post(this.$URL + 'LognServlet', {
             params: {
-              username: this.loginForm.username,
-              password: this.loginForm.password
+              userName: this.loginForm.username,
+              userPwd: this.loginForm.password
             }
           }).then((response) => {
             if (response.data === false) {

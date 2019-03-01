@@ -39,14 +39,14 @@ export const constantRouterMap = [
   {
     path: '/examine',
     component: Layout,
-    redirect: '/examine/E1-StayApproval',
+    redirect: '/examine/waiting',
     name: 'Examine',
     meta: { title: '申请审批', icon: 'component' },
     children: [
       {
-        path: 'E1-StayApproval',
-        component: () => import('@/views/examine/E1-StayApproval/index'), // Parent router-view
-        name: 'E1-StayApproval',
+        path: 'waiting',
+        component: () => import('@/views/examine/waiting/index'), // Parent router-view
+        name: 'waiting',
         meta: { title: '待审批记录', icon: 'record' },
         // children: [
         //   {
@@ -64,9 +64,16 @@ export const constantRouterMap = [
         // ]
       },
       {
-        path: 'E2-ApprovalComplete',
-        component: () => import('@/views/examine/E2-ApprovalComplete/index'),
+        path: 'pass',
+        component: () => import('@/views/examine/pass/index'),
+        name: 'pass',
         meta: { title: '已通过审批', icon: 'true' }
+      },
+      {
+        path: 'nopass',
+        component: () => import('@/views/examine/nopass/index'),
+        name: 'nopass',
+        meta: { title: '未通过审批', icon: 'false' }
       }
     ]
   },
@@ -78,22 +85,22 @@ export const constantRouterMap = [
         path: 'index',
         name: 'status',
         component: () => import('@/views/status/index'),
-        meta: { title: '教室借用查询', icon: 'example' }
+        meta: { title: '教室借用状态', icon: 'example' }
       }
     ]
   },
-  {
-    path: '/settime',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'settime',
-        component: () => import('@/views/settime/index'),
-        meta: { title: '教室借用设置', icon: 'set' }
-      }
-    ]
-  },
+  // {
+  //   path: '/settime',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'settime',
+  //       component: () => import('@/views/settime/index'),
+  //       meta: { title: '教室借用设置', icon: 'set' }
+  //     }
+  //   ]
+  // },
   {
     path: '/set',
     component: Layout,
@@ -107,27 +114,14 @@ export const constantRouterMap = [
     ]
   },
   {
-    path: '/form',
+    path: '/chart',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
+        name: 'chart',
+        component: () => import('@/views/chart/index'),
         meta: { title: '数据分析', icon: 'chart' }
-      }
-    ]
-  },
-
-
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
       }
     ]
   },

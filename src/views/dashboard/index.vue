@@ -1,32 +1,32 @@
 <template>
   <div class="dashboard-container">
-    <h3 class="title">留学生报名系统管理端</h3>
+    <h3 class="title">教室借用系统管理端</h3>
     <ul>
       <li class="card-panel" @click="gotoExamine()">
         <div class="card-panel-icon-wrapper icon-message">
           <svg-icon icon-class="edit" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">待审批材料</div>
-          <span class="card-panel-num">222<span>人</span></span>
+          <div class="card-panel-text">待审批记录</div>
+          <span class="card-panel-num">222<span>条</span></span>
         </div>
       </li>
       <li class="card-panel" @click="gotoPay()">
         <div class="card-panel-icon-wrapper icon-money">
-          <svg-icon icon-class="money" class-name="card-panel-icon" />
+          <svg-icon icon-class="pass" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">待审批缴费</div>
-          <span class="card-panel-num">222<span>人</span></span>
+          <div class="card-panel-text">已通过申请</div>
+          <span class="card-panel-num">222<span>条</span></span>
         </div>
       </li>
       <li class="card-panel" @click="gotoPass()">
         <div class="card-panel-icon-wrapper icon-pass">
-          <svg-icon icon-class="pass" class-name="card-panel-icon" />
+          <svg-icon icon-class="nopass" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">审批通过</div>
-          <span class="card-panel-num">222<span>人</span></span>
+          <div class="card-panel-text">未通过申请</div>
+          <span class="card-panel-num">222<span>条</span></span>
         </div>
       </li>
     </ul>
@@ -44,13 +44,13 @@ export default {
   },
   methods: {
     gotoExamine() {
-      this.$router.push({ path: '/examine/E1-StayApproval/StayApprovalFirst' })
+      this.$router.push({ path: './examine/waiting' })
     },
     gotoPay() {
-      this.$router.push({ path: '/pay/index' })
+      this.$router.push({ path: './examine/pass' })
     },
     gotoPass() {
-      this.$router.push({ path: '/record/index' })
+      this.$router.push({ path: './examine/nopass' })
     }
   }
 }
@@ -95,20 +95,20 @@ export default {
             background: #36a3f7;
           }
           .icon-money {
-            background: #F29700;
+            background: #34bfa3;
           }
           .icon-pass {
-            background: #34bfa3
+            background: #FB4204
           }
         }
         .icon-message {
           color: #36a3f7;
         }
         .icon-money {
-          color: #F29700;
+          color: #34bfa3;
         }
         .icon-pass {
-          color: #34bfa3
+          color: #FB4204
         }
         .card-panel-icon-wrapper {
           float: left;
