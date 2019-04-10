@@ -405,9 +405,11 @@ const classroom = [
     }]
   }
 ]
+const roomuse={a:'班会', b:'补习', c:'讲座', d:'工作室活动', e:'其他'}
 export default
 {
   options,
-  classroom
+  classroom,
+  roomuse
 }
 </script>

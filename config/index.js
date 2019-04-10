@@ -8,7 +8,7 @@ module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
     proxyTable: {
       '/apis':{
         target:'https://www.bcuvote.top/RoomServer',
@@ -65,7 +65,7 @@ module.exports = {
      * then assetsPublicPath should be set to "/bar/".
      * In most cases please use '/' !!!
      */
-    assetsPublicPath: './',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps

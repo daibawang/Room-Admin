@@ -56,6 +56,17 @@
         type="danger"
         @click="nopassrecord()">不通过</el-button>
     </div>
+    <el-dialog :visible.sync="dialogFormVisible" title="审批意见">
+      <el-input
+        :autosize="{ minRows: 3, maxRows: 4 }"
+        v-model="approvalInput"
+        type="textarea"
+        placeholder="请输入审批意见"/>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="addapproval">确 定</el-button>
+      </div>
+    </el-dialog>
     <!-- 分页 -->
     <!-- <div class="Pagination">
       <el-pagination
@@ -73,6 +84,11 @@
 export default{
   data() {
     return {
+      dialogFormVisible: false,
+      changetime:null,
+      changeusername:null,
+      approvalInput:'',
+      roomuse:this.GLOBAL.roomuse,
       isshow: false,
       ischecked: true,
       currentPage: 1,
@@ -97,7 +113,9 @@ export default{
         this.tableData = response.data
         for (var i = 0; i < this.tableData.length; i++) {
           this.tableData[i].data = this.tableData[i].data.substr(0, 4) + '-' + this.tableData[i].data.substr(4, 2) + '-' + this.tableData[i].data.substr(6, 2)
-          this.tableData[i].time = this.tableData[i].ftime + '-' + this.tableData[i].ltime
+          this.tableData[i].time = this.tableData[i].ftime + '-' + this.tableData[i].ltime,
+          this.tableData[i].roomid = '3S-' + this.tableData[i].roomid
+          this.tableData[i].use=this.roomuse[this.tableData[i].use]
         }
       }).catch(() => {
       })
@@ -138,25 +156,11 @@ export default{
     },
     nopassrecord() {
       if (this.multipleSelection.length != 0) {
-        console.log(this.multipleSelection)
         this.$confirm('确定不通过这' + this.multipleSelection.length + '条记录吗？', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消'
         }).then(() => {
-          for (var i = 0; i < this.multipleSelection.length; i++) {
-            this.$axios.get(this.$URL + 'ApprovalServlet', {
-              params: {
-                pass: 'nopass',
-                username: this.multipleSelection[i].username,
-                time: this.multipleSelection[i].submission
-              }
-            })
-          }
-          this.initData()
-          this.$message({
-            message: '已审批不通过' + this.multipleSelection.length + '条记录',
-            type: 'success'
-          })
+          this.dialogFormVisible = true
         }).catch(() => {
           this.$message({
             type: 'info',
@@ -207,33 +211,57 @@ export default{
         })
       })
     },
-    // 不通过
-    handleEdit(index, row) {
-      this.$confirm('确定不通过这条记录吗？', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消'
-      }).then(() => {
-        this.$axios.get(this.$URL + 'ApprovalServlet', {
-          params: {
-            pass: 'nopass',
-            username: row.username,
-            time: row.submission
-          }
-        }).then((response) => {
-          if (response.data == true) {
-            this.initData()
-          }
+    //审批意见
+    addapproval() {
+      const thistime = new Date().getTime()
+      this.dialogFormVisible = false
+      if (this.multipleSelection.length != 0) {
+        for (var i = 0; i < this.multipleSelection.length; i++) {
+          this.$axios.get(this.$URL + 'ApprovalServlet', {
+            params: {
+              pass: 'nopass',
+              noinf:this.approvalInput,
+              username: this.multipleSelection[i].username,
+              time: this.multipleSelection[i].submission
+            }
+          })
+        }
+        this.initData()
+        this.$message({
+          message: '已审批不通过' + this.multipleSelection.length + '条记录',
+          type: 'success'
+        })
+      } else {
+      this.$axios.get(this.$URL + 'ApprovalServlet', {
+        params: {
+          pass: 'nopass',
+          noinf:this.approvalInput,
+          username: this.changeusername,
+          time: this.changetime
+        }
+      }).then((response) => {
+        if (response.data == true) {
+          this.initData()
           this.$message({
             message: '已审批不通过',
             type: 'success'
           })
-        })
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消审批'
-        })
+        }else{
+          this.$alert('审核失败', {
+            confirmButtonText: 'sure'
+          })
+        }
+
       })
+      }
+
+    },
+    // 不通过
+    handleEdit(index, row) {
+      this.dialogIndex = row.username
+      this.dialogFormVisible = true
+      this.changeusername = row.username
+      this.changetime=row.submission
     },
     // 分页
     handleSizeChange(val) {

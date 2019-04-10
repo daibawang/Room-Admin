@@ -85,7 +85,7 @@ export const constantRouterMap = [
         path: 'index',
         name: 'status',
         component: () => import('@/views/status/index'),
-        meta: { title: '教室借用状态', icon: 'example' }
+        meta: { title: '教室占用状态', icon: 'example' }
       }
     ]
   },

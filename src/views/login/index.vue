@@ -88,21 +88,21 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$axios.post(this.$URL + 'LognServlet', {
+          this.$axios.get(this.$URL + 'LognServlet', {
             params: {
               userName: this.loginForm.username,
               userPwd: this.loginForm.password
             }
           }).then((response) => {
-            if (response.data === false) {
-              this.$alert(this.contentsNo, 'Error', {
+            if (response.data == '') {
+              this.$alert('用户名和密码不正确，请重新输入！', 'Error', {
                 confirmButtonText: this.confirmTitle
               })
+              this.loading = false
             } else {
               this.loading = false
               this.$router.push({ path: '/' })
             }
-            console.log(response.data)
           }).catch(() => {
             this.loading = false
             this.$alert('您的网络状态不好，请稍后再试/', 'Error', {

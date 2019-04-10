@@ -46,6 +46,7 @@
 export default{
   data() {
     return {
+      roomuse:this.GLOBAL.roomuse,
       currentPage: 1,
       limit: 3,
       count: 10,
@@ -68,6 +69,8 @@ export default{
         for (var i = 0; i < this.tableData.length; i++) {
           this.tableData[i].data = this.tableData[i].data.substr(0, 4) + '-' + this.tableData[i].data.substr(4, 2) + '-' + this.tableData[i].data.substr(6, 2)
           this.tableData[i].time = this.tableData[i].ftime + '-' + this.tableData[i].ltime
+          this.tableData[i].use=this.roomuse[this.tableData[i].use]
+          this.tableData[i].roomid = '3S-' + this.tableData[i].roomid
         }
         const arrayroomid = []
         const arraydata = []

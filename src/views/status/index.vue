@@ -272,8 +272,9 @@
               inactive-value="1"/>
           </template>
           <template v-else>
-            <i v-if="scope.row.tthree=='1'" class="el-icon-close" style="color:red"/>
-            <i v-if="scope.row.tthree=='0'" class="el-icon-check" style="color:green"/>
+            <svg-icon icon-class="roomset" class="iconstyle"/>
+            <!-- <i v-if="scope.row.tthree=='1'" class="el-icon-close" style="color:red"/>
+            <i v-if="scope.row.tthree=='0'" class="el-icon-check" style="color:green"/> -->
           </template>
         </template>
       </el-table-column>
@@ -288,8 +289,9 @@
               inactive-value="1"/>
           </template>
           <template v-else>
-            <i v-if="scope.row.tfour=='1'" class="el-icon-close" style="color:red"/>
-            <i v-if="scope.row.tfour=='0'" class="el-icon-check" style="color:green"/>
+            <svg-icon icon-class="roomuse" class="iconstyle"/>
+            <!-- <i v-if="scope.row.tfour=='1'" class="el-icon-close" style="color:red"/>
+            <i v-if="scope.row.tfour=='0'" class="el-icon-check" style="color:green"/> -->
           </template>
         </template>
       </el-table-column>
@@ -381,7 +383,7 @@ export default{
           confirmButtonText: 'sure'
         }).then(() => {
         })
-      } else if (formName.roomid == null) {
+      } else if (formName.roomid == null || formName.roomid.length == 0) {
         this.loading = true
         console.log('日期查询')
         this.$axios.get(this.$URL + 'StatusByDataServlet', {
@@ -394,7 +396,7 @@ export default{
         }).catch(() => {
         })
       } else {
-        console.log('教师日期查询')
+        console.log('教室日期查询')
         this.$axios.get(this.$URL + 'StatusByRoomServlet', {
           params: {
             data: formName.dateday,
@@ -469,5 +471,20 @@ export default{
       line-height: 25px;
       color: #606266;
     }
+    .iconstyle{
+      color:red;
+      width:20px;
+      height:20px;
+    }
+    .empty{
+      color:red;
+    }
+    .borrow{
+       color:red;
+    }
+    .setno{
+       color:red;
+    }
+    
   }
   </style>
